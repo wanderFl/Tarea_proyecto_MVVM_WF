@@ -49,7 +49,7 @@ namespace WanderEjerRepaso.ViewModelsWF
             {
                 string noteId = query["saved"].ToString();
                 NoteViewModelWF matchedNote = AllNotes.Where((n) => n.Identifier == noteId).FirstOrDefault();
-
+                
                 // If note is found, update it
                 if (matchedNote != null)
                     matchedNote.Reload();
