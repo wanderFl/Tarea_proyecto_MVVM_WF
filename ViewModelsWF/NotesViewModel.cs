@@ -49,14 +49,16 @@ namespace WanderEjerRepaso.ViewModelsWF
             {
                 string noteId = query["saved"].ToString();
                 NoteViewModelWF matchedNote = AllNotes.Where((n) => n.Identifier == noteId).FirstOrDefault();
-                
+
                 // If note is found, update it
                 if (matchedNote != null)
+                {
                     matchedNote.Reload();
-
+                    AllNotes.Move(AllNotes.IndexOf(matchedNote), 0);
+                }
                 // If note isn't found, it's new; add it.
                 else
-                    AllNotes.Add(new NoteViewModelWF(Note.Load(noteId)));
+                    AllNotes.Insert(0, new NoteViewModelWF(Models.Note.Load(noteId)));
             }
         }
     }

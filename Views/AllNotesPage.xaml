@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ViewModels="clr-namespace:WanderEjerRepaso.ViewModelsWF"
              x:Class="WanderEjerRepaso.Views.AllNotesPage"
-             Title="AllNotesPage">
+             Title="AllNotesPage"
+             NavigatedTo="ContentPage_NavigatedTo">
+    
 
     <ContentPage.BindingContext>
         <ViewModels:NotesViewModel/>
@@ -14,7 +16,7 @@
 
     <!-- Display notes in a list -->
     <CollectionView x:Name="notesCollection"
-                    ItemsSource="{Binding AllNotes}"                        Margin="20"
+                    ItemsSource="{Binding AllNotes}" Margin="20"
                         SelectionMode="Single"
                         SelectionChangedCommand="{Binding SelectNoteCommand}"
                     SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
